@@ -1,0 +1,167 @@
+
+<div class="container">
+  <div class="form">
+    <h2 id="registration">Student Registration Form</h2><br/>
+    <form [formGroup]="registrationForm" #myform="ngForm">
+
+      <div class="row gutters">
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"><label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Your name.."
+          name="firstname" minlength="3" maxlength="12" formControlName="firstname">
+
+          <span class="text-danger">
+            <div *ngIf="registrationForm.controls['firstname'].touched">
+              <p *ngIf="registrationForm.controls['firstname'].errors?.['required']">*First Name is Required!!!</p>
+              <p *ngIf="registrationForm.controls['firstname'].errors?.['minlength']">First Name minimum 3 characters are required!!!</p>
+              <p *ngIf="registrationForm.controls['firstname'].errors?.['maxlength']">First Name max length is 10!!!</p>
+            </div>
+            </span>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"><label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Your last name.."
+          name="lastname" minlength="3" maxlength="12" formControlName="lastname">
+          <span class="text-danger">
+            <div *ngIf="registrationForm.controls['lastname'].touched ">
+              <p *ngIf="registrationForm.controls['lastname'].errors?.['required']">*last Name is Required!!!</p>
+              <p *ngIf="registrationForm.controls['lastname'].errors?.['minlength']">last Name minimum 3 characters are required!!!</p>
+              <p *ngIf="registrationForm.controls['lastname'].errors?.['maxlength']">last Name max length is 10!!!</p>
+            </div>
+            </span>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Your last email.."
+          name="email_add" formControlName="email" >
+
+          <div *ngIf="registrationForm.controls['email'].touched">
+            <span class="text-danger">
+            <div *ngIf=" registrationForm.controls['email'].errors"> 
+              <p *ngIf="registrationForm.controls['email'].errors?.['required']">*Email is a required</p>
+              <p *ngIf="registrationForm.controls['email'].errors?.['email']">This is not a valid Email!!!</p>
+            </div>
+            </span>
+            
+          </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          
+          
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="pwd"
+            formControlName="password"/>
+
+          <div *ngIf="registrationForm.controls['password'].touched" class="invalid-feedback">
+            <span class="text-danger">
+            <p *ngIf="registrationForm.controls['password'].errors?.['required']">*Password is required</p>
+            <p *ngIf="registrationForm.controls['password'].errors?.['minlength']">
+              Password must be at least 6 characters
+            </p>
+            <p *ngIf="registrationForm.controls['password'].errors?.['maxlength']">
+              password must not exceed 12 characters
+            </p>
+
+            <p *ngIf="registrationForm.controls['password'].errors?.['pattern']">This is not a valid password!!!</p>
+          
+          </span>
+          </div>
+          <div class="custom-control custom-checkbox text-left">
+            <input type="checkbox" class="custom-control-input" >
+            <label class="custom-control-label" for="defaultLoginFormRemember" style="color:rgb(60, 83, 14); font-size:15px;">Remember me</label>
+          </div>
+          
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="confirmPassword"
+            formControlName="confirmpassword"
+            
+          
+            
+      
+          />
+
+          <div *ngIf="registrationForm.controls['confirmpassword'].touched" class="invalid-feedback">
+            <span class="text-danger">
+            <p *ngIf="registrationForm.controls['confirmpassword'].errors?.['required']">*Confirm Password is required</p>
+            <p *ngIf="registrationForm.controls['confirmpassword'].errors?.['MustMatch']">Password not match</p>
+          
+          </span>
+          </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <label for="phoneNo">Phone Number</label>
+          <input type="text" id="phoneNo" placeholder="Your Phone Number is.." maxlength="10"
+          name="phonenumber" formControlName="phoneno" [pattern]="mobnumPattern">
+
+
+          <span class="text-danger"
+        *ngIf="(registrationForm.controls['phoneno'].touched) && registrationForm.controls['phoneno'].errors?.['required']">
+         Phone Number is required
+        </span>
+        <span class="text-danger" 
+        *ngIf="registrationForm.controls['phoneno'].errors?.['pattern']">
+        Enter a valid phone Number
+        </span>
+
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+           
+          <label for="date">DateOfBirth</label>
+          <input type="date" id="date" placeholder="Your dateofbirth is.."
+          name="dob" formControlName="dateofbirth">
+
+        </div>
+
+        </div>
+  
+          <label mdbLabel class="form-label" for="add">Address</label>
+          <textarea mdbInput class="form-control" id="add" name="address" formControlName="address" rows="4"></textarea>
+          <br/>
+         
+          <input type="button" (click)="onReset()"  id="rbtn" value="Reset" class="btn btn-warning">
+          <input type="submit" (click)="onsubmit()" [disabled]="!registrationForm.valid" value="Submit" id="sbtn"  class="btn btn-success">
+
+         
+        
+        <div class="row"  *ngIf="showMsg">
+          <div class="col-xs-12">
+            <div class="alert alert-success" role="alert">
+              <h4 class="alert-heading">Well done!</h4>
+              
+              <hr>
+              <p>Aww yeah, you registered successfully</p>
+              
+            </div>
+          </div>
+        </div>
+      
+  </form>
+  </div>
+  
+  <div class="form-data">
+    <h3>Form Data</h3>
+    <p>First Name: <b>{{registrationForm.value.firstname}}</b></p>
+    <p>Last Name: <b>{{registrationForm.value.lastname}}</b></p>
+    <p>Email: <b>{{registrationForm.value.email}}</b></p>
+    <p>password: <b>{{registrationForm.value.password}}</b></p>
+    <p>PhoneNo: <b>{{registrationForm.value.phoneno}}</b> </p>
+    <p>DateOfBirth: <b>{{registrationForm.value.dateofbirth}}</b></p>
+    <p>Address: <b>{{registrationForm.value.address}}</b></p>
+  </div>
+  
+  </div>

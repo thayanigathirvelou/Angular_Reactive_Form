@@ -1,0 +1,130 @@
+input[type=text],[type=email],[type=date],select {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+  }
+
+  input[type=password]{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height:42px;
+
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+
+  input[type=button]{
+    width: 100%;
+    background-color:yellow;
+    color: black;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .form {
+    border-radius: 5px;
+    
+    
+   
+   padding: 20px;
+    width: 550px;
+    margin: 30px auto;
+    background: rgba(219, 213, 213, 0.04);
+    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+    
+  }
+
+  .form-data{
+    border-radius: 5px;
+   
+    padding: 20px;
+    width: 500px;
+    margin: 30px auto;
+
+    background: rgba(219, 213, 213, 0.04);
+    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+
+  }
+
+  input.ng-invalid.ng-touched{
+    border: red 1px solid;
+  }
+  small{
+    color: red;
+  }
+
+  h2{
+    text-align:center;
+    color:#101214;
+    font-size: 38px !important;
+    font-family: 'georgia';
+    
+  }
+.container{
+  position: relative;
+  width: 100%;
+ 
+  overflow: hidden;
+  background: url(https://static.pexels.com/photos/4827/nature-forest-trees-fog.jpeg);
+  height: 240vh;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.form-data h3{
+  text-align:center;
+  color:#11c4bb;
+  font-family: 'georgia';
+  font-size:25px;
+  font-weight: bold;
+
+  
+}
+
+.form-data p{
+  color:white;
+  font-family: 'georgia';
+  font-size:19px;
+  
+}
+
+label{
+  
+  font-size: larger;
+  font-weight:bold;
+}
+
+
+
+  
+
+  
